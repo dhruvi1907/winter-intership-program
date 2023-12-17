@@ -1,0 +1,51 @@
+import random
+import sys
+
+Cchoice = ["Rock", "Paper", "Scissor"]
+while True:
+  print("Rock Paper Scissors Game")
+  youwin,computerwin=0,0
+
+  for i in range(1,6):
+    print ("Round",i,"Start")
+    print("Please select any one option:")
+    print("1. Rock", "2.Paper", "3.Scissor", "4.Exit")
+
+    yourchoice= int(input())
+
+    if yourchoice == 1:
+      print("You have selcted rock.")
+      yourchoice = "Rock"
+    elif yourchoice == 2:
+      print("You have selcted paper.")
+      yourchoice = "Paper"
+    elif yourchoice == 3:
+      print("You have selcted scissors.")
+      yourchoice = "Scissor"
+    elif yourchoice == 4:
+      print("GameOver")
+      sys.exit("Game Over...")
+    else:
+      print("invalid Choice")
+      continue
+
+    Computerchoice = random.choice(Cchoice)
+    print("Computer selects: ",Computerchoice)
+
+    if yourchoice == Computerchoice:
+      youwin+=1
+      computerwin+1
+      print("This round is drawn!")
+    elif (yourchoice == "Paper" and Computerchoice == "Rock") or (yourchoice == "Rock" and Computerchoice == "Paper") or (yourchoice == "Scissors" and Computerchoice == "Paper"):
+      youwin+=1
+      print("You win this round!")
+    else :
+      computerwin+1
+      print("Computer win this round!")
+
+  if youwin > computerwin:
+    print("You win this game!")
+  elif computerwin > youwin:
+    print("computer win this game!")
+  else:
+    print("Match Drawn")
